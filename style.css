@@ -1,0 +1,610 @@
+body {
+    font-family: "DIN Pro", Arial, Helvetica, sans-serif;
+    background-color: #000000;
+    color: white;
+}
+
+.navbar {
+    background-color: #121212;
+    padding: 10px 20px;
+}
+
+.navbar-brand img {
+    height: 30px;
+}
+
+.navbar .container {
+    display: flex;
+    flex-wrap: nowrap;
+    /* Mencegah elemen turun ke baris berikutnya */
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.navbar-nav {
+    display: flex;
+    gap: 5px;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 15px;
+    /* Menjaga jarak antar link */
+    white-space: nowrap;
+    /* Mencegah teks terpotong */
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f5c518;
+}
+
+.search-bar {
+    flex-grow: 1;
+    /* Membuat search bar menyesuaikan ukuran */
+    min-width: 150px;
+    /* Pastikan tidak terlalu kecil */
+}
+
+.search-icon {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #222;
+    padding-top: 20px;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.content {
+    transition: margin-left 0.3s;
+}
+
+@media (max-width: 508px) {
+    .search-bar {
+        display: none;
+    }
+
+    .search-icon {
+        display: inline-block;
+    }
+
+    .navbar-toggler {
+        display: none;
+    }
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    filter: brightness(0.7);
+    border-radius: 25px;
+    box-shadow: inset 100px 100px 20px rgba(0, 0, 0, 0.5);
+}
+.carousel-caption {
+    /* position: absolute; */
+    bottom: 1%;
+    text-align: left;    
+}
+
+.play-button {
+    font-size: 85px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 85px;
+}
+
+.play-button:hover {
+  color: #f5c518;
+}
+
+.carousel-caption h5, span{
+    color: #bbb;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto 1fr; /* Thumbnail - Play Button - Text  */
+    align-items: flex-end;
+    gap: 20px; /* Jarak antar elemen */
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Thumbnail Styling */
+.thumbnail img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Teks Styling */
+.text-container {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    padding-bottom: 10px;
+}
+
+.thumbnail img {
+    width: 160px;
+    height: 260px;
+    border-radius: 5px;
+}
+
+@media (max-width:508px) {
+    .carousel-item img{
+        height: 320px;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto ; /* Thumbnail - Play Button - Text  */
+        align-items: flex-end;
+        gap: 0px; /* Jarak antar elemen */
+        position: absolute;
+        left: 0px;
+        padding: 5px;
+        border-radius: 8px;
+    }
+
+    .thumbnail img{
+        height: 130px;
+        width: 100px;
+    }
+
+    .play-button{
+        font-size: 50px;
+    }
+
+    .reactions span{
+        font-size: 12px;
+        color: #bbb;
+    }
+
+    .text-container {
+        margin-bottom: -10px;
+    }
+
+    .text-container h7{
+        font-weight: bold;
+    }
+
+    .text-container p{
+        font-size: 13px;
+        font-weight: bold;
+        color: #bbb;
+    }
+
+}
+
+.reaction-icons {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+}
+.reaction-icons span {
+    margin-right: 10px;
+    font-size: 18px;
+    color: white;
+}
+
+.category-section {
+    margin-top: 40px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.category-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.category-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.celeb-container {
+    display: flex;
+    gap: 15px; /* Memberikan jarak antar item */
+    overflow-x: auto; /* Mengaktifkan scroll horizontal */
+    white-space: nowrap;
+    padding: 10px;
+    scroll-snap-type: x mandatory; /* Membantu snapping saat scrolling */
+    flex-wrap: nowrap; /* Mencegah elemen turun ke baris baru */
+}
+
+
+.celeb-item {
+    flex: 0 0 auto; /* Memastikan item tidak menyusut */
+    width: 250px; /* Ukuran item lebih besar */
+    text-align: center;
+    scroll-snap-align: start; /* Efek snapping ke elemen berikutnya */
+}
+
+.celeb-item img {
+    width: 250px; /* Ukuran gambar lebih besar */
+    height: 250px;  
+    border-radius: 50%; /* Membuatnya lingkaran */
+    object-fit: cover; /* Memastikan gambar tetap rapi */
+}
+
+.celeb-item p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.open-sidebar {
+    white-space: nowrap; /* Mencegah ikon menu turun ke bawah */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.white{
+    color: white;
+}
+
+.celeb-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* 📱 Ubah ukuran gambar saat di mobile */
+@media (max-width: 768px) {
+    .celeb-item {
+        width: 180px; /* Ukuran item lebih kecil */
+    }
+
+    .celeb-item img {
+        width: 170px; /* Ukuran gambar lebih kecil di mobile */
+        height: 170px;
+    }
+
+    .celeb-item p {
+        font-size: 14px; /* Perkecil teks di mobile */
+    }
+} 
+
+
+#barrrrieeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeer
+
+.up-next {
+    background-color: #111;
+    padding: 15px;
+    border-radius: 10px;
+}
+.up-next h5 {
+    color: #f5c518;
+}
+.video-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #222;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+}
+.video-item img {
+    width: 110px;
+    height: 150px;
+    max-width: 105px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.video-item:hover {
+    background-color: #333;
+}
+.video-interview {
+    font-size: 15px;
+    font-weight: 600;
+    color: #bbb;
+}
+
+.video-time{
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.video-time h2,p{
+   margin: 0px;
+}
+
+.video-time p{
+    color:#bbb;
+ }
+
+.video-reactions {
+    font-size: 14px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.video-reactions span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.browse-trailers {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+.browse-trailers:hover {
+    text-decoration: underline;
+}
+
+#bbbbbbbbbbbbbbbbrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: yellow;
+}
+
+.scroll-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.movie-slider {
+    display: flex;
+    gap: 13px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+}
+
+.movie-card {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    flex: 0 0 auto;
+    width: 250px;
+    text-align: center;
+
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.movie-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.movie-info {
+    padding: 10px;
+}
+
+.rating {
+    color: yellow;
+    font-size: 14px;
+}
+
+h4 {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.watch-now, .trailer {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.trailer {
+    background-color: #1a1a1a;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(82, 82, 82, 0.8);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+.left-btn {
+    left: 0;
+}
+
+.right-btn {
+    right: 0;
+}
+
+/* HIDE SCROLLBAR */
+.movie-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.section-title {
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+
+/* 📱 Ubah ukuran saat tampilan mobile */
+@media (max-width: 768px) {
+    .streaming-section {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .movie-card {
+        width: 140px; /* Lebih kecil di mobile */
+    }
+
+    .movie-card img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .rating {
+        font-size: 12px;
+    }
+
+    h4 {
+        font-size: 14px;
+    }
+
+    .watch-now, .trailer {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .scroll-btn {
+        font-size: 18px;
+        padding: 6px;
+    }
+}   
+
+.featured-section{
+    margin-top: 60px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.featured-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    min-width: 100%; /* Fix untuk mencegah perubahan lebar */
+}
+
+/* Hilangkan scrollbar di Chrome, Safari */
+.featured-container::-webkit-scrollbar {
+    display: none;
+}
+
+.featured-wrapper {
+    position: relative;
+    max-width: 600px;
+}
+
+.featured-card {
+    min-width: 150px;
+    max-width: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #222;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    will-change: transform; /* Mencegah layout shift saat hover */
+}
+
+.featured-card:hover {
+    transform: scale(1.05);
+}
+
+.featured-card img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+.see-more {
+    color: lightblue;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.see-more:hover {
+    text-decoration: underline;
+}
+
+/* Tombol Next & Prev */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    border-radius: 5px;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.scroll-btn:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.prev-btn {
+    left: -10px;
+}
+
+.next-btn {
+    right: -10px;
+}
