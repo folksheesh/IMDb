@@ -1,0 +1,47 @@
+<head>
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+<body>
+<nav class="navbar navbar-dark navbar-expand-lg">
+    <div class="container">
+
+        <!-- Toggle Menu & Logo -->
+        <div class="d-flex align-items-center">
+            <span class="open-sidebar me-3" onclick="toggleSidebar()">&#9776; Menu</span>
+            <a class="navbar-brand" href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg" alt="IMDb">
+            </a>
+        </div>
+
+        <!-- Search Bar (Hanya muncul di desktop) -->
+        <input class="form-control search-bar d-none d-lg-flex flex-grow-1 mx-3" type="search"
+            placeholder="Search...">
+
+        <!-- Ikon Search (Hanya muncul di mobile) -->
+        <button class="btn d-flex d-lg-none ms-auto" onclick="alert('Search clicked!')">
+            <i class="bi bi-search text-white fs-4"></i>
+        </button>
+
+        <!-- Watchlist & Sign in (Watchlist hanya muncul di desktop) -->
+        <div class="nav-links d-flex align-items-center">
+            <a href="#" class="nav-link d-none d-lg-block">Watchlist</a>
+            <a href="#" class="nav-link">Sign in</a>
+        </div>
+    </div>
+</nav>
+
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
+    <a href="#">Movies</a>
+    <a href="#">TV Shows</a>
+    <a href="#">Watch</a>
+    <a href="#">Awards & Events</a>
+    <a href="#">Celebs</a>
+    <a href="#">Community</a>
+</div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
