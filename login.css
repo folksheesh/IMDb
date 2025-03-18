@@ -1,0 +1,67 @@
+body {
+    background: #ADADAD;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-container {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    color: white;
+    text-align: center;
+}
+.logo-container {
+    text-align: center;
+}
+.imdb-logo {
+    max-width: 30%; /* Perbesar sedikit agar lebih proporsional */
+    height: auto;
+    margin: 0 auto; /* Pusatkan gambar */
+    display: block; 
+}
+.form-control {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+}
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+.btn-login {
+    background: red;
+    color: white;
+}
+.btn-login:hover {
+    background: darkred;
+}
+a {
+    text-decoration: none;
+}
+
+/* Responsif - Hilangkan padding saat di mobile */
+@media (max-width: 576px) {
+    body {
+        justify-content: unset;
+        align-items: unset;
+    }
+    .login-container {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0 !important;
+    }
+    form {
+        width: 90%;
+    }
+}
