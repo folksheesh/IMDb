@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDb Top 100 Movies</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #222;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background: #121212;
+            padding: 10px 20px;
+        }
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: yellow;
+        }
+        .nav-link {
+            color: white;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .movie-list {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .movie-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #444;
+        }
+        .movie-item img {
+            width: 60px;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        .movie-info {
+            flex-grow: 1;
+        }
+        .movie-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .movie-year {
+            color: gray;
+            font-size: 14px;
+        }
+        .movie-rating {
+            font-weight: bold;
+            color: yellow;
+        }
+        #searchBar {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="navbar-container"></div>
+
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
+    <div class="container">
+        <h2>Top 250 Movies</h2>
+        
+        <input type="text" id="searchBar" class="form-control" placeholder="Cari film...">
+        
+        <div class="movie-list" id="movieList">
+            
+            <div class="movie-item">
+                <img src="img/001swordartonline2012drtyhj3456789.jpg" alt="The Shawshank Redemption">
+                <div class="movie-info">
+                    <div class="movie-title">1. Sword Art Online</div>
+                    <div class="movie-year">(2012)</div>
+                </div>
+                <div class="movie-rating">9.3</div>
+            </div>
+
+            <div class="movie-item">
+                <img src="img/2d315e6b3d53b67bd999c96874d9398efd23cf6f064b88d3a03fe5c982b6c589.jpg" alt="The Godfather">
+                <div class="movie-info">
+                    <div class="movie-title">2. One Piece Gold</div>
+                    <div class="movie-year">(2020)</div>
+                </div>
+                <div class="movie-rating">9.2</div>
+            </div>
+
+            <div class="movie-item">
+                <img src="img/Dilan_1990_(poster).jpg" alt="The Dark Knight">
+                <div class="movie-info">
+                    <div class="movie-title">3. Dilan 1990</div>
+                    <div class="movie-year">(2018)</div>
+                </div>
+                <div class="movie-rating">8.3</div>
+            </div>
+
+            <div class="movie-item">
+                <img src="img/images.jpeg" alt="The Godfather">
+                <div class="movie-info">
+                    <div class="movie-title">4. 500 days of summer</div>
+                    <div class="movie-year">(1972)</div>
+                </div>
+                <div class="movie-rating">9.2</div>
+            </div>
+
+            <div class="movie-item">
+                <img src="img/MV5BMmQ0ZjliZTgtMjQ3NC00N2NiLTkxNjktY2VkOTQ2N2QyODNkXkEyXkFqcGc@._V1_.jpg" alt="The Godfather">
+                <div class="movie-info">
+                    <div class="movie-title">5. kuchi kuchi hota hai</div>
+                    <div class="movie-year">(1998)</div>
+                </div>
+                <div class="movie-rating">7.5</div>
+            </div>
+
+            <div class="movie-item">
+                <img src="img/MV5BMTY0MjEyODQzMF5BMl5BanBnXkFtZTcwMTczMjQ4Mg@@._V1_QL75_UX190_CR0,0,190,281_.jpg" alt="The Godfather">
+                <div class="movie-info">
+                    <div class="movie-title">6. 2012</div>
+                    <div class="movie-year">(2009)</div>
+                </div>
+                <div class="movie-rating">7.1</div>
+            </div>
+
+            <div class="movie-item">
+                <img src="img/MV5BYzYyN2FiZmUtYWYzMy00MzViLWJkZTMtOGY1ZjgzNWMwN2YxXkEyXkFqcGc@._V1_.jpg" alt="The Godfather">
+                <div class="movie-info">
+                    <div class="movie-title">7. Titanic</div>
+                    <div class="movie-year">(1972)</div>
+                </div>
+                <div class="movie-rating">9.2</div>
+            </div>
+
+            <div class="movie-item">
+                <img src="img/MV5BZDdhODE4NTAtNDc0NS00ZTk1LTk3Y2YtNTE4ODZjMDQ1NjZiXkEyXkFqcGc@._V1_.jpg" alt="The Godfather">
+                <div class="movie-info">
+                    <div class="movie-title">8. Drawing Closer</div>
+                    <div class="movie-year">(1972)</div>
+                </div>
+                <div class="movie-rating">9.2</div>
+            </div>
+
+
+            </div>
+
+
+            
+            
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('searchBar').addEventListener('keyup', function() {
+            let filter = this.value.toLowerCase();
+            let movies = document.querySelectorAll('.movie-item');
+            
+            movies.forEach(function(movie) {
+                let title = movie.querySelector('.movie-title').textContent.toLowerCase();
+                if (title.includes(filter)) {
+                    movie.style.display = '';
+                } else {
+                    movie.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
