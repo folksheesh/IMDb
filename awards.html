@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscars</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+        }
+
+        .custom-header {
+            background-color: #000;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            padding: 20px 30px;
+            width: 50%;
+        }
+
+        .year-selection .btn {
+            margin: 5px;
+            color: white;
+        }
+
+        .year-selection .btn-warning {
+            background-color: #b8860b;
+        }
+
+        .year-selection .btn-warning:hover {
+            background-color: #ffcc00;
+            color: black;
+        }
+
+        .year-selection .btn.active {
+            background-color: #ffcc00 !important;
+            color: black !important;
+        }
+
+        .card {
+            background-color: #111;
+            color: white;
+        }
+
+        .footer {
+            background-color: #111;
+            padding: 15px;
+            text-align: center;
+            color: white;
+        }
+        @media (max-width: 508px) {
+            .movie-poster img {
+            width: 50px;
+            border-radius: 10px;
+        }
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="custom-header">
+        <h1>OSCARS</h1>
+    </header>
+
+    <!-- Tahun Pemilihan -->
+    <div class="container my-4">
+        <div class="btn-group year-selection" role="group">
+            <button class="btn btn-outline-secondary" onclick="changeYear(2025, this)">2025</button>
+            <button class="btn btn-outline-secondary" onclick="changeYear(2024, this)">2024</button>
+            <button class="btn btn-outline-secondary" onclick="changeYear(2024, this)">2023</button>
+            <button class="btn btn-outline-secondary" onclick="changeYear(2024, this)">2022</button>
+            <button class="btn btn-outline-secondary" onclick="changeYear(2024, this)">2021 </button>
+        </div>
+    </div>
+
+    <!-- Best Motion Picture of the Year -->
+    <section id="OSCAR" class="container my-4">
+        <h1 class="fw-bold">Best Motion Picture of the Year</h1>
+        <div id="nominee-list"></div>
+    </section>
+
+    <!-- Best Performance by an Actor in a Leading Role -->
+    <section id="best-actor" class="container my-4">
+        <h1 class="fw-bold">Best Performance by an Actor in a Leading Role</h1>
+        <div id="actor-list"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; IMDb | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        const nomineesData = {
+            2025: [
+                { title: "Anora", rating: "7.6", Users:"(150K)", producers: "Alex Coco, Samantha Quan, Sean Baker", img: "img/anora.jpg", winner: true },
+                { title: "Wicked", rating: "7.5", Users:"(141K)", producers: "Marc Platt", img: "img/wicked.jpeg"},
+                { title:"the substance", rating: "7.3", Users:"(279K)", producers: "Coralie Fargeat, Tim Bevan, Eric Fellner", img: "img/the-substance.jpeg"},
+                { title:"Conclave", rating: "7.4", Users:"(131K)", producers: "Tessa Ross, Juliette Howell, Michael Jackman", img: "img/conclave.jpg"},  
+                { title:"The Brutalist", rating: "7.5", Users:"(68K)", producers: "Brady Corbet, D.J. Gugenheim, Brian Young, Andrew Morrison, Nick Gordon", img: "img/The Brutalist.jpg"}
+             
+            ],
+            2024: [
+                { title: "Oppenheimer", rating: "8.6", Users:"(865K)", producers: "Christopher Nolan, Emma Thomas", img: "img/Oppenheimer.jpg", winner: true },
+                { title: "Barbie", rating: "7.9", Users:"(599k)", producers: "Margot Robbie, Greta Gerwig", img: "img/barbie.jpg"},
+                { title: "Killers of the Flower Moon", rating: "7.6", Users:"(278K)", producers: "Dan Friedkin, Bradley Thomas, Martin Scorsese, Daniel Lupi", img: "img/Killers of the Flower Moon.jpeg"},
+                { title: "Poor Things", rating: "7.8", Users:"(334K)", producers: "Margot Robbie, Greta Gerwig", img: "img/Poor Things.jpeg"},
+                { title: "The Holdovers", rating: "7.9", Users:"(196K)", producers: "Mark Johnsong", img: "img/The Holdovers.jpeg"}   
+            ]
+        };
+
+        const actorNominees = {
+            2025: [
+                { name: "Adrien Brody", movie: "The Brutalist", winner: true, img: "img/adrien brody.jpg" },
+                { name: "Timothée Chalamet", movie: "A Complete Unknown", winner: false, img: "img/Timothée Chalamet.jpeg" },
+                { name: "Ralph Fiennes", movie: "Conclave", winner: false, img: "img/Ralph Fiennes.jpg" }
+            ],
+            2024: [
+                { name: "Cillian Murphy", movie: "Oppenheimer", winner: true, img: "img/Cillian Murphy.jpeg" },
+                { name: "paul giamatti", movie: "The Apprentice", winner: false, img:"img/paul giamatti.jpg" }
+            ]
+        };
+        
+        function changeYear(year, btn) {
+            let nomineeList = document.getElementById("nominee-list");
+            nomineeList.innerHTML = "";
+
+            document.querySelectorAll(".year-selection .btn").forEach(button => {
+                button.classList.remove("active", "btn-warning");
+                button.classList.add("btn-outline-secondary");
+            });
+
+            btn.classList.add("active", "btn-warning");
+            btn.classList.remove("btn-outline-secondary");
+
+            nomineesData[year]?.forEach(nominee => {
+                let nomineeCard = `
+                    <div class="card p-3 mt-3">
+                        <div class="d-flex align-items-start">
+                            <img src="${nominee.img}" alt="${nominee.title}" class="me-2" width="100">
+                            <div>
+                                ${nominee.winner ? '<span class="badge bg-warning text-dark fw-bold">WINNER</span>' : ''}
+                                <h5 class="fw-bold mt-1">${nominee.title}</h5>
+                                <p class="text-warning">★ ${nominee.rating} <a class="text-white"> ${nominee.Users}</a> <a href='Rate.html'>★ Rate</a></p>
+  
+                                <p>${nominee.producers}</p>
+                            </div>
+                        </div>
+                    </div>`;
+                nomineeList.innerHTML += nomineeCard;
+            });
+
+            displayBestActor(year);
+        }
+        function displayBestActor(year) {
+            let actorList = document.getElementById("actor-list");
+            actorList.innerHTML = `
+                <div class="d-flex flex-row overflow-x-auto gap-2 p-2">
+                    ${actorNominees[year]?.map(actor => `
+                        <div class="card text-center p-2" style="width: 150px; min-width: 150px;">
+                            <img src="${actor.img}" alt="${actor.name}" class="img-fluid rounded" style="height: 120px; object-fit: cover;">
+                            <div class="mt-2">
+                                ${actor.winner ? '<span class="badge bg-warning text-dark fw-bold">WINNER</span>' : ''}
+                                <h6 class="fw-bold mt-1">${actor.name}</h6>
+                                <small class="text-muted">${actor.movie}</small>
+                            </div>
+                        </div>
+                    `).join("")}
+                </div>
+            `;
+        }
+        window.onload = function() {
+            changeYear(2025, document.querySelector(".year-selection .btn:first-child"));
+        };
+    </script>
+</body>
+</html>

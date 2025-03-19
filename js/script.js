@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const scrollContainer = document.getElementById("scroll-container");
     const prevBtn = document.querySelector(".prev-btn");
     const nextBtn = document.querySelector(".next-btn");
@@ -38,11 +38,26 @@ document.addEventListener("DOMContentLoaded", function() {
     // Sembunyikan tombol prev jika sudah di posisi awal
     function checkScroll() {
         prevBtn.style.display = scrollContainer.scrollLeft > 0 ? "block" : "none";
-        nextBtn.style.display = 
-            scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth 
-            ? "none" : "block";
+        nextBtn.style.display =
+            scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth
+                ? "none" : "block";
     }
 
     scrollContainer.addEventListener("scroll", checkScroll);
     checkScroll(); // Panggil saat pertama kali halaman dimuat
+});
+
+
+document.getElementById('searchBar').addEventListener('keyup', function () {
+    let filter = this.value.toLowerCase();
+    let movies = document.querySelectorAll('.movie-item');
+
+    movies.forEach(function (movie) {
+        let title = movie.querySelector('.movie-title').textContent.toLowerCase();
+        if (title.includes(filter)) {
+            movie.style.display = '';
+        } else {
+            movie.style.display = 'none';
+        }
+    });
 });

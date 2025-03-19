@@ -1,0 +1,176 @@
+body {
+    background-color: #1f1f1f;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.movie-container {
+    margin-top: 30px;
+}
+
+.movie-poster img {
+    width: 100%;
+    border-radius: 10px;
+    height: 100%;
+    aspect-ratio: 12 / 16;
+}
+
+@media (max-width: 508px) {
+    .movie-poster img {
+        width: 50px;
+        border-radius: 10px;
+    }
+}
+
+.trailer iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.movie-options {
+    background-color: #313330;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.imdb-rating {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.btn-watchlist {
+    background-color: #ffcc00;
+    color: black;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.btn-watchlist:hover {
+    background-color: #e6b800;
+}
+
+.genre-badge {
+    background-color: #1f1f1f;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid white;
+    cursor: pointer;
+    padding: 1;
+}
+
+.genre-badge:hover {
+    background-color: #313330;
+}
+
+.top-badge p {
+    color: #bbb;
+}
+
+@media (max-width: 768px) {
+    .trailer iframe {
+        height: 200px;
+    }
+}
+
+.movie-description {
+    max-width: 600px;
+    font-size: 16px;
+}
+
+@media (max-width: 1000px) {
+    .movie-options {
+        display: none;
+    }
+
+    .movie-option {
+        display: block;
+    }
+
+    .trailer {
+        flex: 0 0 75%; /* Isi seluruh space yang kosong */
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 766px) {
+    .movie-mobile {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .poster-mobile {
+        width: 100%;
+        max-width: 130px;
+        flex-shrink: 0;
+        border-radius: 5px;
+        height: auto;
+    }
+
+    .movie-description {
+        flex: 1;
+        font-size: 14px;
+    }
+
+    .trailer {
+        flex: 0 0 100%; /* Isi seluruh space yang kosong */
+        max-width: 100%;
+    }
+}
+
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari */
+}
+
+.d-flex {
+    /* min-width: 100%; */
+    flex-shrink: 0; /* Prevent flex items from shrinking */
+}
+
+.link {
+    color: #4fa3ff;
+    text-decoration: none;
+}
+.link:hover {
+    text-decoration: underline;
+}
+
+.rate{
+    font-weight: bold;
+    text-align: center;
+    padding: 30px;
+}
+
+.rate span{
+    padding: 6px 15px 6px 15px;
+    color: #4fa3ff;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.rate span:hover{
+    background-color: #3c3d3c;
+    border-radius: 40px;
+}
+
+
+.rate p{
+    padding-top: 5px;
+    font-size: 16px;
+    color: #bbb;
+}
+
