@@ -58,6 +58,11 @@
                 border-radius: 10px;
             }
         }
+
+        .normal-text{
+            text-decoration: none;
+            color: white;
+        }
     </style>
 </head>
 
@@ -79,15 +84,15 @@
         <div id="watchlist-container"></div>
     </div>
 
-   
+
 
 </body>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         let watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
         let container = document.getElementById("watchlist-container");
-    
+
         if (watchlist.length === 0) {
             container.innerHTML = "<p>Your Watchlist is empty.</p>";
         } else {
@@ -95,21 +100,25 @@
                 let card = document.createElement("div");
                 card.classList.add("card", "mb-4", "p-3");
                 card.innerHTML = `
+                    <a class="normal-text" href="celeb-detail.html">
                     <div class="d-flex align-items-start">
-                        <img src="${movie.img}" alt="${movie.title}" class="me-2" width="100">
+                        
+                        <img src="${movie.img}" alt="${movie.title}" class="me-3" width="100">
+                    
                         <div>
                             <h5 class="fw-bold mt-1">${movie.title}</h5>
-                            <p class="text-warning">★ ${movie.rating} <a class="text-white">${movie.users}</a> 
-                            <a href="Rate.html">★ Rate</a></p>
-                            <button class="btn btn-danger btn-sm" onclick="removeFromWatchlist('${movie.title}')">Remove</button>
+                            <p class="text-warning">★ ${movie.rating} <br>
+                            <a class="text-white">${movie.users}</a> <br>
+                             <button class="btn btn-danger btn-sm mt-2" onclick="removeFromWatchlist('${movie.title}')">Remove</button>
                         </div>
+                        </a>
                     </div>
                 `;
                 container.appendChild(card);
             });
         }
     });
-    
+
     // Fungsi Hapus dari Watchlist
     function removeFromWatchlist(title) {
         let watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
@@ -117,7 +126,7 @@
         localStorage.setItem("watchlist", JSON.stringify(watchlist));
         location.reload();
     }
-    </script>
+</script>
 
 <script src="js/script.js"></script>
 

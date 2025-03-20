@@ -1,117 +1,164 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best Selebs</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background: #121212; color: white; font-family: Arial, sans-serif; }
-        .navbar { background: #1e1e1e; padding: 10px 20px; }
-        .navbar-brand { font-size: 24px; font-weight: bold; color: yellow; }
-        .nav-link { color: white; }
-        .container { margin-top: 20px; }
-        .celeb-list { background: #1e1e1e; padding: 20px; border-radius: 10px; }
-        .celeb-item { 
-            display: flex; 
-            align-items: center; 
-            padding: 15px; 
-            border-bottom: 1px solid #444; 
+        body {
+            background: #000000;
+            color: white;
+            font-family: Arial, sans-serif;
         }
-        .celeb-item:hover { background: #292929; }
-        .celeb-item img { 
-            width: 80px; 
-            border-radius: 50%; 
-            margin-right: 15px; 
+
+        /* .navbar { background: #1e1e1e; padding: 10px 20px; }
+        .navbar-brand { font-size: 24px; font-weight: bold; color: yellow; }
+        .nav-link { color: white; } */
+        /* .container { margin-top: 20px; } */
+        .celeb-list {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .celeb-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .celeb-item:hover {
+            background: #292929;
+        }
+
+        .celeb-item img {
+            width: 80px;
+            border-radius: 50%;
+            margin-right: 15px;
             height: 80px;
             object-fit: cover;
         }
-        .celeb-info { flex-grow: 1; }
-        .celeb-name { font-size: 18px; font-weight: bold; }
-        .celeb-occupation { color: gray; font-size: 14px; }
-        .celeb-rating { font-weight: bold; color: yellow; }
+
+        .celeb-info {
+            flex-grow: 1;
+        }
+
+        .celeb-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .celeb-occupation {
+            color: gray;
+            font-size: 14px;
+        }
+
+        .celeb-rating {
+            font-weight: bold;
+            color: yellow;
+        }
+
+        .normal-text {
+            text-decoration: none;
+            color: white;
+        }
     </style>
 </head>
+
 <body>
     <div id="navbar-container"></div>
     <div class="container">
-        <h2>Best Selebs</h2>
+        <h2 class="mt-3">Best Selebs</h2>
         <div class="celeb-list" id="celebList">
             <div class="celeb-item">
-                <img src="img/Leonardo Decaprio.jpeg" alt="Leonardo DiCaprio">
-                <div class="celeb-info">
-                    <div class="celeb-name">1. Leonardo DiCaprio</div>
-                    <p class="celeb-occupation">Actor, Producer</p>
-                    <div class="#">An Oscar-winning actor known for his roles in Titanic, Inception, and The Revenant.</div>
-                </div>
+                <img src="img/bray.jpg" alt="Leonardo DiCaprio">
+                <a class="normal-text" href="celeb-detail.html">
+                    <div class="celeb-info">
+                        <div class="celeb-name">1. Bryan Cranston</div>
+                        <p class="celeb-occupation">Actor, Producer</p>
+                        <div class="#">An Oscar-winning actor known for his roles in Breaking Bad.</div>
+                    </div>
+                </a>
             </div>
             <div class="celeb-item">
                 <img src="img/Angelina Jolie.jpg" alt="Angelina Jolie">
-                <div class="celeb-info">
-                    <div class="celeb-name">2. Angelina Jolie</div>
-                    <p class="celeb-occupation">Actress, Director, Humanitarian</p>
-                    <div class="#">Renowned for her roles in Tomb Raider and Maleficent, as well as her humanitarian efforts.</div>
-                </div>
+                <a class="normal-text" href="celeb-detail.html">
+                    <div class="celeb-info">
+                        <div class="celeb-name">2. Angelina Jolie</div>
+                        <p class="celeb-occupation">Actress, Director, Humanitarian</p>
+                        <div class="#">Renowned for her roles in Tomb Raider and Maleficent, as well as her humanitarian
+                            efforts.</div>
+                    </div>
+                </a>
+
             </div>
             <div class="celeb-item">
-                <img src="img/Sebastian Stan.jpeg" alt="Sebastian Stan.">
+                <img src="img/Leonardo Decaprio.jpeg" alt="Leonardo DiCaprio">
+                <a class="normal-text" href="celeb-detail.html">
                 <div class="celeb-info">
-                    <div class="celeb-name">3. Sebastian Stan.</div>
-                    <p class="celeb-occupation">Actor</p>
-                    <div class="#"> He gained recognition for his role as Bucky Barnes / Winter Soldier in the Marvel Cinematic Universe media franchise beginning with the film Captain America: The First Avenger (2011), and including the Disney+ miniseries The Falcon and the Winter Soldier (2021).</div>
+                    <div class="celeb-name">3. Leonardo DiCaprio</div>
+                    <p class="celeb-occupation">Actor, Producer</p>
+                    <div class="#">An Oscar-winning actor known for his roles in Titanic, Inception, and The Revenant.
+                    </div>
                 </div>
+                </a>
             </div>
         </div>
     </div>
     <script>
         fetch('navbar.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('navbar-container').innerHTML = data;
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
 
-            // Tunggu navbar selesai dimuat
-            setTimeout(() => {
-                const searchBar = document.getElementById('searchBar');
+                // Tunggu navbar selesai dimuat
+                setTimeout(() => {
+                    const searchBar = document.getElementById('searchBar');
 
-                if (searchBar) {
-                    // Event untuk mengetik di search bar
-                    searchBar.addEventListener('keyup', function () {
-                        let filter = this.value.toLowerCase();
-                        localStorage.setItem("searchKeyword", filter); // Simpan pencarian di localStorage
-                        filterMovies(filter);
-                    });
+                    if (searchBar) {
+                        // Event untuk mengetik di search bar
+                        searchBar.addEventListener('keyup', function () {
+                            let filter = this.value.toLowerCase();
+                            localStorage.setItem("searchKeyword", filter); // Simpan pencarian di localStorage
+                            filterMovies(filter);
+                        });
 
-                    // Jika ada pencarian tersimpan, langsung filter
-                    let savedKeyword = localStorage.getItem("searchKeyword");
-                    if (savedKeyword) {
-                        searchBar.value = savedKeyword;
-                        filterMovies(savedKeyword);
+                        // Jika ada pencarian tersimpan, langsung filter
+                        let savedKeyword = localStorage.getItem("searchKeyword");
+                        if (savedKeyword) {
+                            searchBar.value = savedKeyword;
+                            filterMovies(savedKeyword);
+                        }
                     }
-                }
-            }, 500);
-        })
-        .catch(error => console.error('Gagal memuat navbar:', error));
+                }, 500);
+            })
+            .catch(error => console.error('Gagal memuat navbar:', error));
 
-    function filterMovies(keyword) {
-        let movies = document.querySelectorAll('.movie-item');
-        movies.forEach(movie => {
-            let title = movie.querySelector('.movie-title').textContent.toLowerCase();
-            movie.style.display = title.includes(keyword) ? '' : 'none';
-        });
-    }
-document.addEventListener("DOMContentLoaded", function () {
-        let searchBar = document.getElementById("searchBar");
-
-        if (searchBar) {
-            let keyword = localStorage.getItem("searchKeyword") || "";
-            searchBar.value = keyword; // Tampilkan keyword sebelumnya jika ada
-            filterMovies(keyword);
-
-    
+        function filterMovies(keyword) {
+            let movies = document.querySelectorAll('.movie-item');
+            movies.forEach(movie => {
+                let title = movie.querySelector('.movie-title').textContent.toLowerCase();
+                movie.style.display = title.includes(keyword) ? '' : 'none';
+            });
         }
+        document.addEventListener("DOMContentLoaded", function () {
+            let searchBar = document.getElementById("searchBar");
 
-    });
+            if (searchBar) {
+                let keyword = localStorage.getItem("searchKeyword") || "";
+                searchBar.value = keyword; // Tampilkan keyword sebelumnya jika ada
+                filterMovies(keyword);
+
+
+            }
+
+        });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
