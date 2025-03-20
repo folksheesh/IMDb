@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Film</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
+    <div class="container mt-4 content">
+        <div class="row">
+            <!-- Carousel Utama (Desktop) -->
+            <div class="col-lg-8 d-none d-lg-block">
+                <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/movie.jpg" alt="Main Video">
+                            <div class="carousel-caption grid-container">
+                                <!-- Thumbnail -->
+                                <div class="thumbnail">
+                                    <img src="img/F1.jpg" alt="Thumbnail">
+                                </div>
+
+                                <!-- Play Button -->
+                                <div class="play-button">
+                                    <i class="bi bi-play-circle"></i>
+                                </div>
+
+                                <!-- Teks & Reactions -->
+                                <div class="text-container">
+                                    <h3>Brad Pitt Stars in 'F1'</h3>
+                                    <h5>Watch the New Trailer</h5>
+                                    <div class="reactions">
+                                        <span>👍 418</span>
+                                        <span>💖 179</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/movie.jpg" alt="Main Video">
+                            <div class="carousel-caption grid-container">
+                                <!-- Thumbnail -->
+                                <div class="thumbnail">
+                                    <img src="img/movie1.jpg" alt="Thumbnail">
+                                </div>
+
+                                <!-- Play Button -->
+                                <div class="play-button">
+                                    <i class="bi bi-play-circle"></i>
+                                </div>
+
+                                <!-- Teks & Reactions -->
+                                <div class="text-container">
+                                    <h3>Every Path Has a Price</h3>
+                                    <h5>Watch "The Last of Us" Season 2 Trailer</h5>
+                                    <div class="reactions">
+                                        <span>👍 418</span>
+                                        <span>💖 179</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- "Up Next" Section (Desktop) -->
+            <div class="col-lg-4 d-none d-lg-block">
+                <h5 class="text-warning bold">Up next</h5>
+                <div class="list-group">
+                    <a href="#" class="video-item">
+                        <img src="img/trailer1.jpg" alt="Video Thumbnail">
+                        <div>
+                            <div class="video-time">
+                                <h2><i class="bi bi-play-circle"></i></h2>
+                                <p>3:30</p>
+                            </div>
+                            <h6 class="mb-0">'The Electric State' Stars Share Their Special Skills</h6>
+                            <p class="video-interview">Watch the interview</p>
+                            <div class="video-reactions">
+                                <span>👍 120</span>
+                                <span>💜 43</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="video-item">
+                        <img src="img/F1.jpg" alt="Video Thumbnail">
+                        <div>
+                            <div class="video-time">
+                                <h2><i class="bi bi-play-circle"></i></h2>
+                                <p>4:10</p>
+                            </div>
+                            <h6 class="mb-0">Brad Pitt Stars in 'F1'</h6>
+                            <p class="video-interview">Watch the interview</p>
+                            <div class="video-reactions">
+                                <span>👍 362</span>
+                                <span>💜 160</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="video-item">
+                        <img src="img/trailer2.jpg" alt="Video Thumbnail">
+                        <div>
+                            <div class="video-time">
+                                <h2><i class="bi bi-play-circle"></i></h2>
+                                <p>1:40</p>
+                            </div>
+                            <h6 class="mb-0">The 'Opus' Cast Discuss Their Personal Pop Obsessions</h6>
+                            <p class="video-interview">Watch the interview</p>
+                            <div class="video-reactions">
+                                <span>👍 56</span>
+                                <span>💜 15</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="browse-trailers">Browse trailers &#10095;</a>
+                </div>
+            </div>
+
+            <!-- Mobile: Gabungkan Main Video & Up Next -->
+            <div class="col-12 d-block d-lg-none">
+                <div id="mobileCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/movie.jpg" alt="Main Video">
+                            <div class="carousel-caption grid-container">
+                                <!-- Thumbnail -->
+                                <div class="thumbnail">
+                                    <img src="img/trailer.jpg" alt="Thumbnail">
+                                </div>
+                                <!-- Teks & Reactions -->
+                                <div class="text-container">
+                                    <!-- Play Button -->
+                                    <div class="play-button">
+                                        <i class="bi bi-play-circle"></i>
+                                    </div>
+                                    <h7>Brad Pitt Stars in 'F1'</h7>
+                                    <p>Watch the New Trailer</p>
+                                    <div class="reactions">
+                                        <span>👍 418</span>
+                                        <span>💖 179</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="img/movie.jpg" alt="Main Video">
+                            <div class="carousel-caption grid-container">
+                                <!-- Thumbnail -->
+                                <div class="thumbnail">
+                                    <img src="img/F1.jpg" alt="Thumbnail">
+                                </div>
+                                <!-- Teks & Reactions -->
+                                <div class="text-container">
+                                    <!-- Play Button -->
+                                    <div class="play-button">
+                                        <i class="bi bi-play-circle"></i>
+                                    </div>
+                                    <h7>Brad Pitt Stars in 'F1'</h7>
+                                    <p>Watch the New Trailer</p>
+                                    <div class="reactions">
+                                        <span>👍 418</span>
+                                        <span>💖 179</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#mobileCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#mobileCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button> -->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="featured-section">
+            <h1 class="text-warning bold">Featured Today</h1>
+            <div class="featured-wrapper">
+                <button class="scroll-btn prev-btn">&#10094;</button> <!-- Tombol Prev -->
+                <div class="featured-container" id="scroll-container">
+                    <div class="featured-card">
+                        <a href="movie-detail.html">
+                        <img src="img/F1.jpg" alt="Movie 1">
+                        </a>
+                    </div>
+                    <div class="featured-card">
+                        <img src="img/F1.jpg" alt="Movie 2">
+                    </div>
+                    <div class="featured-card">
+                        <img src="img/F1.jpg" alt="Movie 3">
+                    </div>
+                    <div class="featured-card">
+                        <img src="img/F1.jpg" alt="Movie 4">
+                    </div>
+                    <div class="featured-card">
+                        <img src="img/F1.jpg" alt="Movie 5">
+                    </div>
+                    <div class="featured-card">
+                        <img src="img/F1.jpg" alt="Movie 6">
+                    </div>
+                    <div class="featured-card">
+                        <img src="img/F1.jpg" alt="Movie 7">
+                    </div>
+                </div>
+                <button class="scroll-btn next-btn">&#10095;</button> <!-- Tombol Next -->
+            </div>
+        </div>
+
+
+        <div class="category-section">
+            <h3 class="category-title">Most Popular Celebrities</h3>
+            <div class="celeb-container">
+                <div class="celeb-item">
+                    <img src="img/artist.jpg" alt="Popular Celebrity">
+                    <p>Pamela Bach-Hasselhoff</p>
+                </div>
+                <div class="celeb-item">
+                    <img src="img/artist1.jpg" alt="Popular Celebrity">
+                    <p>Pamela Bach-Hasselhoff</p>
+                </div>
+                <div class="celeb-item">
+                    <img src="img/artist2.jpg" alt="Popular Celebrity">
+                    <p>Pamela Bach-Hasselhoff</p>
+                </div>
+                <div class="celeb-item">
+                    <img src="img/artist3.jpg" alt="Popular Celebrity">
+                    <p>Pamela Bach-Hasselhoff</p>
+                </div>
+                <div class="celeb-item">
+                    <img src="img/artist4.jpg" alt="Popular Celebrity">
+                    <p>James Le Gros</p>
+                </div>
+                <div class="celeb-item">
+                    <img src="img/artist5.jpg" alt="Popular Celebrity">
+                    <p>Mikey Madison</p>
+                </div>
+            </div>
+        </div>
+
+
+        <section class="streaming-section">
+            <h2 class="section-title">Explore what's streaming ❯</h2>
+
+            <div class="scroll-container">
+                <button class="scroll-btn left-btn">❮</button>
+
+                <div class="movie-slider">
+                    <div class="movie-card">
+                        <img src="img/instertellar.jpg" alt="Invincible">
+                        <div class="movie-info">
+                            <p class="rating">⭐ 8.7</p>
+                            <h4>Invincible</h4>
+                            <button class="watch-now">Watch now</button>
+                            <button class="trailer">▶ Trailer</button>
+                        </div>
+                    </div>
+
+                    <div class="movie-card">
+                        <img src="img/instertellar.jpg" alt="Reacher">
+                        <div class="movie-info">
+                            <p class="rating">⭐ 8.0</p>
+                            <h4>Reacher</h4>
+                            <button class="watch-now">Watch now</button>
+                            <button class="trailer">▶ Trailer</button>
+                        </div>
+                    </div>
+
+                    <div class="movie-card">
+                        <img src="img/instertellar.jpg" alt="Yellowjackets">
+                        <div class="movie-info">
+                            <p class="rating">⭐ 7.7</p>
+                            <h4>Yellowjackets</h4>
+                            <button class="watch-now">Watch now</button>
+                            <button class="trailer">▶ Trailer</button>
+                        </div>
+                    </div>
+
+                    <div class="movie-card">
+                        <img src="img/instertellar.jpg" alt="Yellowstone">
+                        <div class="movie-info">
+                            <p class="rating">⭐ 8.6</p>
+                            <h4>Yellowstone</h4>
+                            <button class="watch-now">Watch now</button>
+                            <button class="trailer">▶ Trailer</button>
+                        </div>
+                    </div>
+
+                    <div class="movie-card">
+                        <img src="img/instertellar.jpg" alt="Dexter">
+                        <div class="movie-info">
+                            <p class="rating">⭐ 8.6</p>
+                            <h4>Dexter</h4>
+                            <button class="watch-now">Watch now</button>
+                            <button class="trailer">▶ Trailer</button>
+                        </div>
+                    </div>
+
+                    <div class="movie-card">
+                        <img src="img/instertellar.jpg" alt="Nickel Boys">
+                        <div class="movie-info">
+                            <p class="rating">⭐ 7.0</p>
+                            <h4>Nickel Boys</h4>
+                            <button class="watch-now">Watch now</button>
+                            <button class="trailer">▶ Trailer</button>
+                        </div>
+                    </div>
+
+                    <div class="movie-card">
+                        <img src="img/instertellar.jpg" alt="Nickel Boys">
+                        <div class="movie-info">
+                            <p class="rating">⭐ 7.0</p>
+                            <h4>Nickel Boys</h4>
+                            <button class="watch-now">Watch now</button>
+                            <button class="trailer">▶ Trailer</button>
+                        </div>
+                    </div>
+
+                    <div class="movie-card">
+                        <img src="img/instertellar.jpg" alt="Nickel Boys">
+                        <div class="movie-info">
+                            <p class="rating">⭐ 7.0</p>
+                            <h4>Nickel Boys</h4>
+                            <button class="watch-now">Watch now</button>
+                            <button class="trailer">▶ Trailer</button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="scroll-btn right-btn">❯</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

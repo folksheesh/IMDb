@@ -1,0 +1,129 @@
+.navbar {
+    background-color: #121212;
+    padding: 10px 20px;
+}
+
+.navbar-brand img {
+    height: 30px;
+}
+
+.navbar .container {
+    display: flex;
+    flex-wrap: nowrap;
+    /* Mencegah elemen turun ke baris berikutnya */
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.navbar-nav {
+    display: flex;
+    gap: 5px;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 15px;
+    /* Menjaga jarak antar link */
+    white-space: nowrap;
+    /* Mencegah teks terpotong */
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f5c518;
+}
+
+.search-bar {
+    flex-grow: 1;
+    /* Membuat search bar menyesuaikan ukuran */
+    min-width: 150px;
+    /* Pastikan tidak terlalu kecil */
+}
+
+@media (max-width: 508px) {
+    .search-bar {
+        display: none;
+    }
+
+    .search-icon {
+        display: inline-block;
+    }
+
+    .navbar-toggler {
+        display: none;
+    }
+}
+
+.search-icon {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #222;
+    padding-top: 20px;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.content {
+    transition: margin-left 0.3s;
+}
+
+.open-sidebar {
+    white-space: nowrap; /* Mencegah ikon menu turun ke bawah */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search-popup {
+    position: absolute;
+    top: 42px;
+    left: 0;
+    background-color: #222;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    border-radius: 5px;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  .search-popup a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #444;
+  }
+
+  .search-popup a:hover {
+    background-color: #575757;
+  }
