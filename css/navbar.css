@@ -35,6 +35,11 @@
     font-weight: bold;
 }
 
+.nav-link a{
+    color: white;
+    font-weight: bold;
+}
+
 .navbar-nav .nav-link:hover {
     color: #f5c518;
 }
@@ -100,4 +105,8 @@
     white-space: nowrap; /* Mencegah ikon menu turun ke bawah */
     font-weight: bold;
     cursor: pointer;
+}
+
+.bold{
+    font-weight: bold;
 }
