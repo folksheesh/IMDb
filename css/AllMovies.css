@@ -1,0 +1,24 @@
+body { background: #121212; color: white; font-family: Arial, sans-serif; }
+        .navbar { background: #1e1e1e; padding: 10px 20px; }
+        .navbar-brand { font-size: 24px; font-weight: bold; color: yellow; }
+        .nav-link { color: white; }
+        .container { margin-top: 20px; }
+        .movie-list { background: #1e1e1e; padding: 20px; border-radius: 10px; }
+        .movie-item { 
+        display: flex; 
+        align-items: center; 
+        padding: 15px; 
+        border-bottom: 1px solid #444; 
+        }
+        .movie-item:hover { background: #292929; }
+        .movie-item img { 
+        width: 80px; 
+        border-radius: 5px; 
+        margin-right: 15px; 
+        height: 120px;
+        object-fit: cover;
+        }
+        .movie-info { flex-grow: 1; }
+        .movie-title { font-size: 18px; font-weight: bold; }
+        .movie-year { color: gray; font-size: 14px; }
+        .movie-rating { font-weight: bold; color: yellow; }
