@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/movie-detail.css">
+    <link rel="stylesheet" href="css/celeb-detail.css">
 </head>
 
 <body>
@@ -29,17 +29,16 @@
     <!-- Movie Detail Section -->
     <div class="container movie-container">
         <div class="top-badge">
-            <h1>Breaking Bad</h1>
+            <h1>Bryan Cranston</h1>
             <p class="small-info">
-                TV Series
-                2008–2013
-                TV-MA
-                45m
+                Actor
+                Producer
+                Writer
             </p>
         </div>
         <div class="row align-items-stretch">
             <div class="col-lg-3 col-md-3 d-none d-md-block movie-poster">
-                <img src="img/brb.jpg" alt="Breaking Bad Poster">
+                <img src="img/bray.jpg" alt="Breaking Bad Poster">
             </div>
             <div class="col-md-6 col-sm-9 trailer">
                 <div class="trailer-container">
@@ -48,14 +47,9 @@
                 </div>
             </div>
             <div class="col-lg-3 d-none d-lg-block movie-options">
-                <p class="mini-p">IMDb RATING</p>
-                <p class="imdb-rating">⭐ 9.5/10</p>
+                <p class="mini-p">IMDb GRADE</p>
+                <p class="imdb-rating">282</p>
                 <p class="small-text">2.3M Ratings</p>
-                <button class="btn btn-watchlist" id="addToWatchlist" data-title="Breaking Bad" data-rating="9.5"
-                    data-users="2.3M Ratings" data-img="img/brb.jpg">
-                    + Add to Watchlist
-                </button>
-                <p class="small-text mt-3">Added by 1.2M users</p>
                 <p class="small-text">5.2K User reviews | 176 Critic reviews</p>
                 <p class="mini-p">YOUR RATING</p>
                 <div class="rating-box" data-bs-toggle="modal" data-bs-target="#ratingModal">
@@ -81,7 +75,7 @@
                             <span id="ratingValue2">?</span>
                         </div>
                         <p class="rate-this">RATE THIS</p>
-                        <h5 class="mb-4">Mickey 17</h5>
+                        <h5 class="mb-4">Bryan Cranston</h5>
                         <!-- Star Rating -->
                         <div class="star-rating">
                             <i class="fas fa-star" data-value="1"></i>
@@ -106,50 +100,20 @@
 
         <div class="row mt-4 d-flex ">
             <div class="col-4 d-md-none movie-poster ">
-                <img src="img/brb.jpg" alt="Breaking Bad Poster">
+                <img src="img/bray.jpg" alt="Breaking Bad Poster">
             </div>
             <div class="col-8 side-info">
-                <div class="d-flex flex-wrap gap-2">
-                    <span class="genre-badge">Drama</span>
-                    <span class="genre-badge">Crime</span>
-                    <span class="genre-badge">Thriller</span>
-                </div>
                 <div class="movie-description">
-                    <p class="mt-3">A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and
-                        selling methamphetamine with a former student to secure his family's future.</p>
+                    <p class="mt-3">Bryan Lee Cranston was born on March 7, 1956 in Hollywood, California, to Audrey
+                        Peggy Sell, a radio actress, and Joe Cranston, an actor and former amateur boxer. His maternal
+                        grandparents were German, and his father was of Irish, German, and Austrian-Jewish ancestry. He
+                        was raised in the Canoga Park neighborhood of Los Angeles, and also stayed with his
+                        grandparents, living on their poultry farm in Yucaipa. Cranston's father walked out on the
+                        family when Cranston was eleven, and they did not see each other again until 11 years later,
+                        when Cranston and his brother decide to track down their father.</p>
                 </div>
-            </div>
-        </div>
-
-        <!-- MOVIE INFO -->
-        <div class="movie-info">
-            <div class="info-row">
-                <span class="info-title">Creator</span>
-                <span class="info-content"><a href="#">Vince Gilligan</a></span>
-                <span class="arrow"><i class="fas fa-chevron-right"></i></span>
-            </div>
-
-            <div class="info-row">
-                <span class="info-title">Stars</span>
-                <span class="info-content">
-                    <a href="celeb-detail.html">Bryan Cranston</a> · <a href="#">Aaron Paul</a> · <a href="#">Anna
-                        Gunn</a>
-                </span>
-                <span class="arrow"><i class="fas fa-chevron-right"></i></span>
-            </div>
-        </div>
-
-        <div class="movie-option mt-3">
-            <p class="mini-p">IMDb RATING</p>
-            <p class="imdb-rating">⭐ 9.5/10</p>
-            <p class="small-text">2.3M Ratings</p>
-            <button class="btn btn-watchlist">+ Add to Watchlist</button>
-            <p class="small-text mt-3">Added by 1.2M users</p>
-            <p class="small-text">5.2K User reviews | 176 Critic reviews</p>
-            <p class="mini-p">YOUR RATING</p>
-            <div class="rating-box mb-5" data-bs-toggle="modal" data-bs-target="#ratingModal">
-                <i class="fas fa-star star"></i>
-                <span id="ratingValue1">?</span>/10
+                <div class="info-row">
+                </div>
             </div>
         </div>
     </div>
@@ -159,26 +123,4 @@
     <script src="js/script.js"></script>
 </body>
 
-<script>
-    document.getElementById("addToWatchlist").addEventListener("click", function() {
-        let movie = {
-            title: this.getAttribute("data-title"),
-            rating: this.getAttribute("data-rating"),
-            users: this.getAttribute("data-users"),
-            img: this.getAttribute("data-img"),
-        };
-    
-        let watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
-        
-        // Cek apakah movie sudah ada di watchlist
-        if (!watchlist.some(m => m.title === movie.title)) {
-            watchlist.push(movie);
-            localStorage.setItem("watchlist", JSON.stringify(watchlist));
-            alert(movie.title + " added to Watchlist!");
-        } else {
-            alert("This movie is already in your Watchlist.");
-        }
-    });
-    </script>
-        
 </html>

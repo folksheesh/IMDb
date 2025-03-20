@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,44 +51,56 @@
             text-align: center;
             color: white;
         }
+
         @media (max-width: 508px) {
             .movie-poster img {
-            width: 50px;
-            border-radius: 10px;
+                width: 50px;
+                border-radius: 10px;
+            }
         }
-        }
-
-
     </style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header class="custom-header">
-        <h1>OSCARS</h1>
-    </header>
+    <div class="mb-4" id="navbar-container"></div>
 
-    <!-- Tahun Pemilihan -->
-    <div class="container my-4">
-        <div class="btn-group year-selection" role="group">
-            <button class="btn btn-outline-secondary" onclick="changeYear(2025, this)">2025</button>
-            <button class="btn btn-outline-secondary" onclick="changeYear(2024, this)">2024</button>
-            <button class="btn btn-outline-secondary" onclick="changeYear(2024, this)">2023</button>
-            <button class="btn btn-outline-secondary" onclick="changeYear(2024, this)">2022</button>
-            <button class="btn btn-outline-secondary" onclick="changeYear(2024, this)">2021 </button>
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+    <div class="container">
+        <!-- Header -->
+      
+            <h1 class="">Oscars</h1>
+     
+
+        <!-- Tahun Pemilihan -->
+        <div class="container my-4">
+            <div class="btn-group year-selection" role="group">
+                <button class="btn btn-outline-secondary" onclick="changeYear(2025, this)">2025</button>
+                <button class="btn btn-outline-secondary" onclick="changeYear(2024, this)">2024</button>
+                <button class="btn btn-outline-secondary" onclick="changeYear(2024, this)">2023</button>
+                <button class="btn btn-outline-secondary" onclick="changeYear(2024, this)">2022</button>
+                <button class="btn btn-outline-secondary" onclick="changeYear(2024, this)">2021 </button>
+            </div>
         </div>
+
+        <!-- Best Motion Picture of the Year -->
+        <section id="OSCAR" class="container my-4">
+            <h1 class="fw-bold">Best Motion Picture of the Year</h1>
+            <div id="nominee-list"></div>
+        </section>
+
+        <!-- Best Performance by an Actor in a Leading Role -->
+        <section id="best-actor" class="container my-4">
+            <h1 class="fw-bold">Best Performance by an Actor in a Leading Role</h1>
+            <div id="actor-list"></div>
+        </section>
     </div>
-
-    <!-- Best Motion Picture of the Year -->
-    <section id="OSCAR" class="container my-4">
-        <h1 class="fw-bold">Best Motion Picture of the Year</h1>
-        <div id="nominee-list"></div>
-    </section>
-
-    <!-- Best Performance by an Actor in a Leading Role -->
-    <section id="best-actor" class="container my-4">
-        <h1 class="fw-bold">Best Performance by an Actor in a Leading Role</h1>
-        <div id="actor-list"></div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -97,19 +110,19 @@
     <script>
         const nomineesData = {
             2025: [
-                { title: "Anora", rating: "7.6", Users:"(150K)", producers: "Alex Coco, Samantha Quan, Sean Baker", img: "img/anora.jpg", winner: true },
-                { title: "Wicked", rating: "7.5", Users:"(141K)", producers: "Marc Platt", img: "img/wicked.jpeg"},
-                { title:"the substance", rating: "7.3", Users:"(279K)", producers: "Coralie Fargeat, Tim Bevan, Eric Fellner", img: "img/the-substance.jpeg"},
-                { title:"Conclave", rating: "7.4", Users:"(131K)", producers: "Tessa Ross, Juliette Howell, Michael Jackman", img: "img/conclave.jpg"},  
-                { title:"The Brutalist", rating: "7.5", Users:"(68K)", producers: "Brady Corbet, D.J. Gugenheim, Brian Young, Andrew Morrison, Nick Gordon", img: "img/The Brutalist.jpg"}
-             
+                { title: "Anora", rating: "7.6", Users: "(150K)", producers: "Alex Coco, Samantha Quan, Sean Baker", img: "img/anora.jpg", winner: true },
+                { title: "Wicked", rating: "7.5", Users: "(141K)", producers: "Marc Platt", img: "img/wicked.jpeg" },
+                { title: "the substance", rating: "7.3", Users: "(279K)", producers: "Coralie Fargeat, Tim Bevan, Eric Fellner", img: "img/the-substance.jpeg" },
+                { title: "Conclave", rating: "7.4", Users: "(131K)", producers: "Tessa Ross, Juliette Howell, Michael Jackman", img: "img/conclave.jpg" },
+                { title: "The Brutalist", rating: "7.5", Users: "(68K)", producers: "Brady Corbet, D.J. Gugenheim, Brian Young, Andrew Morrison, Nick Gordon", img: "img/The Brutalist.jpg" }
+
             ],
             2024: [
-                { title: "Oppenheimer", rating: "8.6", Users:"(865K)", producers: "Christopher Nolan, Emma Thomas", img: "img/Oppenheimer.jpg", winner: true },
-                { title: "Barbie", rating: "7.9", Users:"(599k)", producers: "Margot Robbie, Greta Gerwig", img: "img/barbie.jpg"},
-                { title: "Killers of the Flower Moon", rating: "7.6", Users:"(278K)", producers: "Dan Friedkin, Bradley Thomas, Martin Scorsese, Daniel Lupi", img: "img/Killers of the Flower Moon.jpeg"},
-                { title: "Poor Things", rating: "7.8", Users:"(334K)", producers: "Margot Robbie, Greta Gerwig", img: "img/Poor Things.jpeg"},
-                { title: "The Holdovers", rating: "7.9", Users:"(196K)", producers: "Mark Johnsong", img: "img/The Holdovers.jpeg"}   
+                { title: "Oppenheimer", rating: "8.6", Users: "(865K)", producers: "Christopher Nolan, Emma Thomas", img: "img/Oppenheimer.jpg", winner: true },
+                { title: "Barbie", rating: "7.9", Users: "(599k)", producers: "Margot Robbie, Greta Gerwig", img: "img/barbie.jpg" },
+                { title: "Killers of the Flower Moon", rating: "7.6", Users: "(278K)", producers: "Dan Friedkin, Bradley Thomas, Martin Scorsese, Daniel Lupi", img: "img/Killers of the Flower Moon.jpeg" },
+                { title: "Poor Things", rating: "7.8", Users: "(334K)", producers: "Margot Robbie, Greta Gerwig", img: "img/Poor Things.jpeg" },
+                { title: "The Holdovers", rating: "7.9", Users: "(196K)", producers: "Mark Johnsong", img: "img/The Holdovers.jpeg" }
             ]
         };
 
@@ -121,10 +134,10 @@
             ],
             2024: [
                 { name: "Cillian Murphy", movie: "Oppenheimer", winner: true, img: "img/Cillian Murphy.jpeg" },
-                { name: "paul giamatti", movie: "The Apprentice", winner: false, img:"img/paul giamatti.jpg" }
+                { name: "paul giamatti", movie: "The Apprentice", winner: false, img: "img/paul giamatti.jpg" }
             ]
         };
-        
+
         function changeYear(year, btn) {
             let nomineeList = document.getElementById("nominee-list");
             nomineeList.innerHTML = "";
@@ -173,9 +186,11 @@
                 </div>
             `;
         }
-        window.onload = function() {
+        window.onload = function () {
             changeYear(2025, document.querySelector(".year-selection .btn:first-child"));
         };
     </script>
 </body>
+
+<script src="js/script.js"></script>
 </html>

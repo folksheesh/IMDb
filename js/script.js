@@ -61,3 +61,77 @@ document.getElementById('searchBar').addEventListener('keyup', function () {
         }
     });
 });
+
+let selectedRating = 0;
+
+// Ambil semua elemen bintang
+const stars = document.querySelectorAll('.star-rating i');
+const removeRatingBtn = document.getElementById('removeRating'); // Tombol Remove Rating
+
+// Fungsi untuk mewarnai bintang berdasarkan rating
+function updateStars(value) {
+    stars.forEach(star => {
+        const starValue = parseInt(star.getAttribute('data-value'));
+        star.classList.toggle('active', starValue <= value);
+    });
+}
+
+// Event hover: Menyalakan bintang saat hover
+stars.forEach(star => {
+    star.addEventListener('mouseover', function () {
+        updateStars(parseInt(this.getAttribute('data-value')));
+    });
+
+    // Reset tampilan saat mouse keluar dari area bintang
+    star.addEventListener('mouseleave', function () {
+        updateStars(selectedRating);
+    });
+
+    // Klik untuk memilih rating
+    star.addEventListener('click', function () {
+        selectedRating = parseInt(this.getAttribute('data-value'));
+        updateStars(selectedRating);
+
+        // Tampilkan tombol Remove Rating setelah memilih rating
+        removeRatingBtn.style.display = "block";
+    });
+});
+
+// Submit rating
+document.getElementById('submitRating').addEventListener('click', function () {
+    if (selectedRating > 0) {
+        document.getElementById('ratingValue').textContent = selectedRating;
+        document.getElementById('ratingValue1').textContent = selectedRating;
+        document.getElementById('ratingValue2').textContent = selectedRating;
+        document.querySelector('.rating-box .star').style.color = '#1e90ff';
+
+        // Tampilkan tombol Remove Rating setelah rating diberikan
+        removeRatingBtn.style.display = "block";
+
+        let modal = bootstrap.Modal.getInstance(document.getElementById('ratingModal'));
+        modal.hide();
+    }
+});
+
+// Reset rating saat modal dibuka kembali
+document.getElementById('ratingModal').addEventListener('show.bs.modal', function () {
+    updateStars(selectedRating);
+});
+
+// Event untuk menghapus rating
+removeRatingBtn.addEventListener('click', function () {
+    selectedRating = 0;
+    updateStars(selectedRating);
+
+    // Kembalikan teks rating ke "Rate"
+    document.getElementById('ratingValue').textContent = "?";
+    document.getElementById('ratingValue1').textContent = "?";
+    document.getElementById('ratingValue2').textContent = "?";
+
+    // Kembalikan warna ikon bintang ke default
+    document.querySelector('.rating-box .star').style.color = '';
+
+    // Sembunyikan tombol Remove Rating
+    removeRatingBtn.style.display = "none";
+});
+
